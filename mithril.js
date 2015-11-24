@@ -359,7 +359,7 @@ var m = (function app(window, undefined) {
 						if (parentTag === "textarea") parentElement.value = data;
 						else if (editable) editable.innerHTML = data;
 						else {
-							if (nodes[0].nodeType === 1 || nodes.length > 1) { //was a trusted string
+							if (nodes[0].nodeType === 1 || nodes.length > 1 || !nodes[0].nodeValue.trim()) { //was a trusted string
 								clear(cached.nodes, cached);
 								nodes = [$document.createTextNode(data)]
 							}
